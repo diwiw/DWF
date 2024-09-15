@@ -14,9 +14,6 @@ value,
 ◦ get_first(): returns the least recently inserted or changed key-value pair
 **/
 
-// That's not the main point of the task, so it was simplified
-
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -24,6 +21,43 @@ value,
 #include <algorithm>
 
 const std::string BOOK_PATH = "..\\resources\\book.txt";
+
+const int TABLE_SIZE = 10000;
+
+struct HashEntry {
+    std::string key;
+    int value;
+    bool isOccupied;
+    bool isDeleted;
+};
+
+class HashTable {
+private:
+    std::vector<HashEntry> table;
+    int first_index;
+    int last_index;
+public:
+    HashTable() : table(TABLE_SIZE), first_index(-1), last_index(-1) {
+        for (int i = 0; i < TABLE_SIZE; i++) {
+            table[i].isOccupied = false;
+            table[i].isDeleted = false;
+        }
+    }
+
+    // Insert key-value pair (or update)
+    void insert(const std::string& key, int value) {
+
+    }
+
+    void remove(const std::string& key) {
+
+    }
+
+    int get(const std::string& key) {
+
+    }
+
+};
 
 // Parse words from a book file
 static std::vector<std::string> parseBook(const std::string& filename) {
@@ -50,6 +84,9 @@ int main()
     std::vector<std::string> words = parseBook(BOOK_PATH);
 
     std::cout << "words[0]: " << words[0] << std:: endl;
+    std::cout << "words[1]: " << words[1] << std::endl;
+    std::cout << "words[2]: " << words[2] << std::endl;
+    std::cout << "words[3]: " << words[3] << std::endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
